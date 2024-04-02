@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h3>Add A Flight</h3>
+<form action="/movies" method="POST">
+    <label>Flight Number:</label>
+    <input type="number" name="flightNumber">
+    <label>Airline:</label>
+    <input type="text" name="airline">
+    <label>Airport:</label>
+    <select name="airport">
+      <option value="SFO">SFO</option>
+      <option value="OAK">OAK</option>
+      <option value="LAX">LAX</option>
+      <option value="JFK">JFK</option>
+      <option value="SAN">SAN</option>
+    </select>
+  </form>
+
+<%- include('../partials/footer') %>
