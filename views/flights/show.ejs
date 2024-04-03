@@ -5,7 +5,7 @@
     <h2><span class='flight-details'>Flight Number:</span> <%= flight.flightNumber %></h2>
     <h2><span class='flight-details'>Airline:</span> <%= flight.airline %></h2>
     <h2><span class='flight-details'>Airport:</span> <%= flight.airport %></h2>
-    <h2><span class='flight-details'>Departure time:</span> <%= flight.departs ? flight.departs : 'TBD' %></h2>
+    <h2><span class='flight-details'>Departure time:</span> <%= flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) ? flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) : 'TBD' %></h2>
 </div>
 <br><br><h2>Add Ariving Flight:</h2>
 <br><div>
@@ -29,7 +29,7 @@
       <% if (flight.destination) { %>
         <div  style='border-style:outset;'>
           <h2><span class='flight-details'>Airport:</span> <%= dest.airport %></h2>
-          <h2><span class='flight-details'>Arrival Time:</span> <%= dest.arrival %></h2>
+          <h2><span class='flight-details'>Arrival Time:</span> <%= dest.arrival.toLocaleString('en-US', {timeZone: 'UTC'}) %></h2>
         </div><br>
       <% } else { %>
         <h2>Add an Arriving Flight</h2>

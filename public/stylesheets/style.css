@@ -31,6 +31,7 @@ table thead th {
 	font-weight: bold;
 	font-size: 20px;
 	border: 1px solid #54585d;
+	padding: 15px;
 }
 table tbody td {
 	color: #636363;
