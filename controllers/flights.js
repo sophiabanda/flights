@@ -9,11 +9,11 @@ module.exports = {
 
 async function index(req, res) {
     const flight = await Flight.find({});
-    res.render('flights/index', {title: 'Flights', flight})
+    res.render('flights/index', {title: 'Flights', flight});
 }
 
 function newFlight(req, res) {
-    res.render('flights/new', {title: 'Add a Flight'})
+    res.render('flights/new', {title: 'Add a Flight'});
 }
 
 async function create(req, res) {
@@ -22,7 +22,7 @@ async function create(req, res) {
         res.redirect('/flights');
     } catch(error) {
         console.log('error: ', error);
-        res.render({errorMessage: error.message})
+        res.render({errorMessage: error.message});
     }
 }
 

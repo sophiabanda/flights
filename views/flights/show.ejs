@@ -1,10 +1,35 @@
 <%- include('../partials/header') %>
 
-<h2><%= flight.flightNumber %></h2>
-<h2><%= flight.airline %></h2>
-<h2><%= flight.airport %></h2>
-<h2><%= flight.departure %></h2>
-
-<input type='submit'>
+<br>
+<div style='border: 2px solid black;background-color: #b3e1fe;'>
+    <h2>Departing:</h2>
+    <h2><span class='flight-details'>Flight Number:</span> <%= flight.flightNumber %></h2>
+    <h2><span class='flight-details'>Airline:</span> <%= flight.airline %></h2>
+    <h2><span class='flight-details'>Airport:</span> <%= flight.airport %></h2>
+    <h2><span class='flight-details'>Departure time:</span> <%= flight.departs ? flight.departs : 'TBD' %></h2>
+</div>
+<br><br>
+<h2>Add Ariving Flight:</h2>
+<br>
+<div>
+    <form action="/flights/<%= flight._id %>/destination" method="POST">
+      <label>Airport:</label>
+      <select name="airport">
+        <option value="SFO">SFO</option>
+        <option value="OAK">OAK</option>
+        <option value="LAX">LAX</option>
+        <option value="JFK">JFK</option>
+        <option value="SAN">SAN</option>
+      </select>
+      <input type='date' name='departs'>
+      <button type='submit'>Submit</button>
+    </form>
+</div>
+<br>
+<div style='border: 2px solid black;background-color: #b3e1fe;'>
+    <h2>Arriving:</h2>
+    <h2><span class='flight-details'>Airline:</span> <%= flight.destination.airport %></h2>
+    <h2><span class='flight-details'>Arrival time:</span> <%= flight.destination.arrival %></h2>
+</div>    
 
 <%- include('../partials/footer') %>
