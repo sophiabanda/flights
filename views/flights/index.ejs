@@ -8,6 +8,7 @@
         <th>Airport</th>
         <th>Departure</th>
         <th>Details</th>
+        <th>Connecting Flight</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +19,11 @@
           <td><%= f.airport %></td>
           <td><%= f.departs %></td>
           <td><a class='button' href="/flights/<%= f._id %>">Details</a></td>
+          <% if (f.destination[0]) { %>
+            <td style='text-align: center; font-size: 25px;'><%= 'X' %></td>
+          <% } else { %>
+            <td><%= '' %></td>
+         <% } %>
         </tr>
         <% }); %>
       </tbody>
