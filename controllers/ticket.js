@@ -13,16 +13,17 @@ async function newTicket(req, res) {
 
 async function create(req, res) {
     try {
-        const flight = await Flight.findById(req.params.id);
-        const ticket = await Ticket.find({flight: flight._id}).populate('flight');
-        
-        console.log('ticket__>', ticket)
-        res.redirect(`/flights/${flight._id}`);
-    } catch(error) {
+      const flight = await Flight.findById(req.params.id);
+      const ticket = new Ticket(req.body);
+      ticket.flight = flight._id; // Set to the _id of the flight
+      await ticket.save();
+      res.redirect(`/flights/${flight._id}`);
+    } catch (error) {
         console.log('error: ', error);
-        res.render('error', { error: error})
+        res.render({errorMessage: error.message})
     }
-}
+  }
+
 
 
 
