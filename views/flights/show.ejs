@@ -8,11 +8,15 @@
     <h2><span class='flight-details'>Departure time:</span> <%= flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) ? flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) : 'TBD' %></h2>
 </div>
 <br><div style='border: 2px solid black; text-align: center;'>
-  <h3 style='text-decoration: underline;'>Tickets</h3>
-  <% ticket.map((t) => { %>
-    <h5>Seat: <%= t.seat %></h5>
-    <h5>Price: $<%= t.price %></h5>
-  <% }) %>
+  <% if(ticket) { %>
+    <h3 style='text-decoration: underline;'>Tickets</h3>
+    <% ticket.map((t) => { %>
+      <h5>Seat: <%= t.seat %></h5>
+      <h5>Price: $<%= t.price %></h5>
+    <% }) %>
+  <% } else { %>
+    <h3>Purchase ticket below</h3>
+  <% } %>
 </div>
 
 </div>
