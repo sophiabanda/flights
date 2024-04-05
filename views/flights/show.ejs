@@ -7,6 +7,11 @@
     <h2><span class='flight-details'>Airport:</span> <%= flight.airport %></h2>
     <h2><span class='flight-details'>Departure time:</span> <%= flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) ? flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) : 'TBD' %></h2>
 </div>
+<br><div style='border: 2px solid black'>
+<h5>No current tickets for this flight</h5>
+</div>
+
+</div>
 <br><br><h2>Add Ariving Flight:</h2>
 <br><div>
     <form action="/flights/<%= flight._id %>/destination" method="POST">
@@ -37,7 +42,7 @@
      <% }) %>
 </div> 
 <div>
-  <a class='button' href="/ticket/new">Add Ticket</a>
+  <a class='button' href='/flights/<%= flight._id %>/ticket/new'>Add Ticket</a>
 </div>   
 
 <%- include('../partials/footer') %>
