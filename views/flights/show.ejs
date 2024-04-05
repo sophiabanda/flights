@@ -7,6 +7,7 @@
     <h2><span class='flight-details'>Airport:</span> <%= flight.airport %></h2>
     <h2><span class='flight-details'>Departure time:</span> <%= flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) ? flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) : 'TBD' %></h2>
 </div>
+<h5><%= ticket %></h5>
 <br><div style='border: 2px solid black'>
   <h5>No current tickets for this flight</h5>
 </div>
