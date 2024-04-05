@@ -1,22 +1,25 @@
 <%- include('../partials/header') %>
 
-<br><div style='border: 2px solid black;background-color: #b3e1fe;'>
+<br><div style='border-style: inset;background-color: #b3e1fe;'>
     <h2>Departing:</h2>
     <h2><span class='flight-details'>Flight Number:</span> <%= flight.flightNumber %></h2>
     <h2><span class='flight-details'>Airline:</span> <%= flight.airline %></h2>
     <h2><span class='flight-details'>Airport:</span> <%= flight.airport %></h2>
     <h2><span class='flight-details'>Departure time:</span> <%= flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) ? flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) : 'TBD' %></h2>
 </div>
-<br><div style='border: 2px solid black; text-align: center;'>
-  <% if(ticket) { %>
-    <h3 style='text-decoration: underline;'>Tickets</h3>
-    <% ticket.map((t) => { %>
-      <h5>Seat: <%= t.seat %></h5>
-      <h5>Price: $<%= t.price %></h5>
-    <% }) %>
-  <% } else { %>
-    <h3>Purchase ticket below</h3>
-  <% } %>
+<br>
+<h2>Seats purchased:</h2>
+  <% ticket.forEach((t) => { %>
+    <% if (ticket) { %>
+      <br><div style='border-style: inset;text-align: left; display: flex;'>
+            <h2><span class='flight-details'>Price:</span> $<%= t.price %></h2>
+            <h2><span class='flight-details'>Seat:</span> <%= t.seat %></h2>
+          <br>
+        <% } else { %>
+          <h2>Purchase tickets below</h2>
+       <% } %>
+      </div> 
+       <% }) %>
 </div>
 
 </div>
@@ -36,21 +39,21 @@
       <button type='submit'>Submit</button>
     </form>
 </div>
-<br><div style='border:2px solid black;background-color: #b3e1fe;'>
-    <h2>Arriving:</h2>
-    <% flight.destination.forEach((dest) => { %>
-      <% if (flight.destination) { %>
-        <div  style='border-style:outset;'>
+<% flight.destination.forEach((dest) => { %>
+  <% if (flight.destination) { %>
+    <br><div style='border-style: inset;background-color: #b3e1fe;'>
+        <h2>Arriving:</h2>
+        <div'>
           <h2><span class='flight-details'>Airport:</span> <%= dest.airport %></h2>
           <h2><span class='flight-details'>Arrival Time:</span> <%= dest.arrival.toLocaleString('en-US', {timeZone: 'UTC'}) %></h2>
         </div><br>
       <% } else { %>
         <h2>Add an Arriving Flight</h2>
      <% } %>
+    </div> 
      <% }) %>
-</div> 
-<div>
-  <a class='button' href='/flights/<%= flight._id %>/ticket/new'>Add Ticket</a>
+<div style='text-align: center; padding: 20px;'>
+  <a style='font-size: 25px;' class='button' href='/flights/<%= flight._id %>/ticket/new'>Add Ticket</a>
 </div>   
 
 <%- include('../partials/footer') %>
