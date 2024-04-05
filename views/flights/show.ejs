@@ -8,20 +8,20 @@
     <h2><span class='flight-details'>Departure time:</span> <%= flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) ? flight.departs.toLocaleString('en-US', {timeZone: 'UTC'}) : 'TBD' %></h2>
 </div>
 <br><div style='border: 2px solid black'>
-<h5>No current tickets for this flight</h5>
+  <h5>No current tickets for this flight</h5>
 </div>
 
 </div>
 <br><br><h2>Add Ariving Flight:</h2>
 <br><div>
-    <form action="/flights/<%= flight._id %>/destination" method="POST">
+    <form action='/flights/<%= flight._id %>/destination' method='POST'>
       <label>Airport:</label>
-      <select name="airport">
-        <option value="SFO">SFO</option>
-        <option value="OAK">OAK</option>
-        <option value="LAX">LAX</option>
-        <option value="JFK">JFK</option>
-        <option value="SAN">SAN</option>
+      <select name='airport'>
+        <option value='SFO'>SFO</option>
+        <option value='OAK'>OAK</option>
+        <option value='LAX'>LAX</option>
+        <option value='JFK'>JFK</option>
+        <option value='SAN'>SAN</option>
       </select>
       <label>Departs:</label>
       <input type='date' name='arrival'>
